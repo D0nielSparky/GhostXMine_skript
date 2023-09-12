@@ -1,0 +1,12 @@
+on join:
+  set join message to ""
+  set scaled health of player to 20
+  wait 1 second
+  make console execute command "/heal %player%"
+  if player has played before:
+    broadcast "&aWelcome Back %player%"
+  else:
+    broadcast "&aWelcome %player% to the server"
+
+on leave:
+  broadcast "&c%player% left"
