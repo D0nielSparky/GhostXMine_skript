@@ -10,3 +10,5 @@ on join:
 
 on leave:
   broadcast "&c%player% left"
+
+#Code by Daniel_Sparky
