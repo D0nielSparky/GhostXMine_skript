@@ -1,0 +1,9 @@
+every second:
+  loop all players:
+    if loop-player's have permission "conpress.wood.toggle"::
+      if loop-player has 32 oak wood:
+        set {_n} to number of iron ingots in loop-player's inventory
+        set {_n} to {_n} / 32
+        loop {_n} times:
+          remove ({_n} * 32) oak wood from loop-player
+          give {_n} shiny oak wood named "&6Compressed Wood"
