@@ -19,3 +19,5 @@ command /toggledrop:
     else:
       execute command "/lp user %player% permission set drops.toggle false"
       send "&cDropping Disabled"
+
+#Code by Daniel_Sparky
