@@ -1,0 +1,21 @@
+on drop:
+  if player does not have permission "drops.toggle":
+    cancel event
+    send "&cUnable to drop items. Do /drops"
+
+command /drops:
+  trigger:
+    execute command "/lp user %player% permission set drops.toggle true"
+    send "&cYou can drop items for 10 seconds"
+    wait 10 seconds
+    execute command "/lp user %player% permission set drops.toggle false"
+    end "&cDropping Disabled"
+
+command /toggledrop:
+  trigger:
+    if player does not have permission "drops.toggle":
+      execute command "/lp user %player% permission set drops.toggle true"
+      send "&cDropping Permently Disabled, Run /toggledrop to disable drops"
+    else:
+      execute command "/lp user %player% permission set drops.toggle false"
+      send "&cDropping Disabled"
