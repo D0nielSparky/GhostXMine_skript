@@ -26,3 +26,5 @@ command /spawn:
             execute command "/lp user %player% permission set warps.toggle false"
             execute command "/lp user %player% permission set warps.on false"
             exit loop
+
+#Code by Daniel_Sparky
