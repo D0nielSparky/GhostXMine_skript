@@ -1,0 +1,12 @@
+every 1 second:
+  loop all players:
+    if "%region at loop-player%" contains "afk":
+      if {time::%loop-player%} > 178: #if player reaches the amount of afk time, set to 2 seconds before the set time
+        send "&5&lObtained afk reward" to loop-player
+        give shiny gray dye named "&8AFK Fragment" to loop-player
+        set {time::%loop-player%} to 0
+      else:
+        add 1 to {time::%loop-player%}
+    else:
+      if {time::%loop-player%} > 0:
+        set {time::%loop-player%} to 0
