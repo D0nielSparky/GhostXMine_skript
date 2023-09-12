@@ -1,0 +1,28 @@
+#detect movement during warp
+on any movement:
+  if player have permission "warps.on":
+    execute command "/lp user %player% permission set warps.toggle false"
+    wait 1 second
+    execute command "/lp user %player% permission set warps.toggle true"
+
+command /spawn:
+  trigger:
+    if player have permission "combat.tag":
+      send "&cUnable to telport, Player in combat log"
+    else:
+      execute command "/lp user %player% permission set warps.on true"
+      set {_countdown} to 11
+      loop 10 times:
+        if player have permission "warps.toggle":
+          remove 1 from {_countdown}
+          send "&aTeleporting in %{_countdown}% seconds"
+          wait 1 second
+          if {_countdown} is 1:
+            wait 1 second
+            execute command "/warp test %player%"
+            execute command "/lp user %player% permission set warps.on false"
+          else:
+            send "&cTeleport canceled, Player moved"
+            execute command "/lp user %player% permission set warps.toggle false"
+            execute command "/lp user %player% permission set warps.on false"
+            exit loop
